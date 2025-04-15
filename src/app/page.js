@@ -15,7 +15,7 @@ export default async function Home() {
         <CategorySection />
         <CallToAction />
         <LatestPosts />
-        <NewsletterSection />
+        {/*<NewsletterSection />*/}
       </main>
   );
 }

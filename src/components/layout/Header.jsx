@@ -18,15 +18,17 @@ export default function Header() {
 
             <div className="d-flex align-items-center">
               <div className="social-links">
-                <a href="#" className="facebook"><i className="bi bi-facebook"></i></a>
-                <a href="#" className="twitter"><i className="bi bi-twitter"></i></a>
-                <a href="#" className="instagram"><i className="bi bi-instagram"></i></a>
+                <a href="https://www.facebook.com/EngineerMix" className="facebook"><i className="bi bi-facebook"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=201153263994" className="whatsapp"><i className="bi bi-whatsapp"></i></a>
+                <a href="https://www.instagram.com/yotech_org/" className="instagram"><i className="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/islam-hassan-alalfy-2b2234167" className="linkedin"><i className="bi bi-linkedin"></i></a>
+                <a href="https://github.com/EngALAlfy" className="github"><i className="bi bi-github"></i></a>
               </div>
 
-              <form className="search-form ms-4">
-                <input type="text" placeholder="Search..." className="form-control"/>
-                <button type="submit" className="btn"><i className="bi bi-search"></i></button>
-              </form>
+              {/*<form className="search-form ms-4">*/}
+              {/*  <input type="text" placeholder="Search..." className="form-control"/>*/}
+              {/*  <button type="submit" className="btn"><i className="bi bi-search"></i></button>*/}
+              {/*</form>*/}
             </div>
           </div>
 
@@ -38,29 +40,6 @@ export default function Header() {
               <ul>
                 <li><Link href="/">Home</Link></li>
                 <li><Link href="/about">About</Link></li>
-                <li><Link href="/category">Category</Link></li>
-                <li className="dropdown"><a href="#"><span>Pages</span> <i
-                    className="bi bi-chevron-down toggle-dropdown"></i></a>
-                  <ul>
-                    <li><Link href="about.html">About</Link></li>
-                    <li><Link href="category.html">Category</Link></li>
-                    <li><Link href="blog-details.html">Blog Details</Link></li>
-                    <li><Link href="author-profile.html">Author Profile</Link></li>
-                    <li><Link href="search-results.html">Search Results</Link></li>
-                    <li><Link href="404.html" className="active">404 Not Found Page</Link></li>
-
-                    <li className="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                        className="bi bi-chevron-down toggle-dropdown"></i></a>
-                      <ul>
-                        <li><Link href="#">Deep Dropdown 1</Link></li>
-                        <li><Link href="#">Deep Dropdown 2</Link></li>
-                        <li><Link href="#">Deep Dropdown 3</Link></li>
-                        <li><Link href="#">Deep Dropdown 4</Link></li>
-                        <li><Link href="#">Deep Dropdown 5</Link></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
                 <li><Link href="/contact">Contact</Link></li>
               </ul>
               <i className="mobile-nav-toggle d-xl-none bi bi-list"></i>

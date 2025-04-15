@@ -3,17 +3,17 @@ import FormInput from './FormInput';
 
 const ContactForm = () => {
   const serviceOptions = [
-    { value: 'Consulting', label: 'Consulting' },
-    { value: 'Development', label: 'Development' },
-    { value: 'Marketing', label: 'Marketing' },
-    { value: 'Support', label: 'Support' }
+    { value: 'blog', label: 'Blog' },
+    { value: 'development', label: 'Development' },
+    { value: 'yostore', label: 'YoStore' },
+    { value: 'yotech', label: 'YoTech' }
   ];
 
   return (
     <div className="row">
       <div className="col-lg-12">
         <div className="form-wrapper" data-aos="fade-up" data-aos-delay="400">
-          <form action="forms/contact.php" method="post" role="form" className="php-email-form">
+          <form action="/" method="post" role="form" className="php-email-form">
             <div className="row">
               <div className="col-md-6 form-group">
                 <FormInput

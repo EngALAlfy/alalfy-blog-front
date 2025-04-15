@@ -26,11 +26,6 @@ import MainScript from '@/components/layout/MainScript';
 import ScrollTopButton from '@/components/layout/ScrollTopButton';
 import Preloader from '@/components/layout/Preloader';
 
-export const metadata = {
-    title: "Alalfy Blog",
-    description: "A blog created with Next.js and Bootstrap",
-};
-
 export default function RootLayout({children}) {
     return (
         <html lang="en">
