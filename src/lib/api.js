@@ -48,9 +48,9 @@ export async function getPostBySlug(slug) {
  * @param {number} limit - Number of featured posts to fetch
  * @returns {Promise<Array>} - Array of featured blog posts
  */
-export async function getFeaturedPosts(limit = 3) {
+export async function getFeaturedPosts() {
   try {
-    const response = await fetch(`${API_URL}/posts/featured?limit=${limit}`);
+    const response = await fetch(`${API_URL}/posts/featured`);
 
     if (!response.ok) {
       throw new Error('Failed to fetch featured posts');

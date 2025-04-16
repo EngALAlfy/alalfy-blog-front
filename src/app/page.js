@@ -12,9 +12,9 @@ export default async function Home() {
   // Fetch all data in parallel
   const [heroPost, featuredPosts, categories, latestPosts] = await Promise.all([
     getHeroPost(),
-    getFeaturedPosts(3),
+    getFeaturedPosts(),
     getHomeCategories(),
-    getLatestPosts(6)
+    getLatestPosts()
   ]);
 
   return (
