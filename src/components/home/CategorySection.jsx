@@ -3,7 +3,7 @@ import SectionTitle from '../shared/SectionTitle';
 import FeaturedCategoryPost from './FeaturedCategoryPost';
 import ListPost from '../shared/ListPost';
 
-const CategorySection = () => {
+const CategorySection = ({categories}) => {
   return (
     <section id="category-section" className="category-section section">
       <SectionTitle 

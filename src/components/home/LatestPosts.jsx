@@ -2,7 +2,7 @@ import React from 'react';
 import SectionTitle from '../shared/SectionTitle';
 import LatestPostItem from './LatestPostItem';
 
-const LatestPosts = () => {
+const LatestPosts = ({ posts }) => {
   return (
     <section id="latest-posts" className="latest-posts section">
       <SectionTitle 
