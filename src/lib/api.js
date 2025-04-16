@@ -2,26 +2,7 @@
  * API service for fetching blog data from Laravel backend
  */
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
-
-/**
- * Fetch latest blog posts
- * @returns {Promise<Array>} - Array of blog posts
- */
-export async function getLatestPosts() {
-  try {
-    const response = await fetch(`${API_URL}/posts/latest`);
-
-    if (!response.ok) {
-      throw new Error('Failed to fetch posts');
-    }
-
-    return response.json();
-  } catch (error) {
-    console.error('Error fetching posts:', error);
-    return [];
-  }
-}
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://blog.alalfy.com/api';
 
 /**
  * Fetch a single blog post by slug
@@ -84,12 +65,11 @@ export async function getHeroPost() {
 
 /**
  * Fetch latest posts
- * @param {number} limit - Number of latest posts to fetch
  * @returns {Promise<Array>} - Array of latest blog posts
  */
-export async function getLatestPosts(limit = 5) {
+export async function getLatestPosts() {
   try {
-    const response = await fetch(`${API_URL}/posts/latest?limit=${limit}`);
+    const response = await fetch(`${API_URL}/posts/latest`);
 
     if (!response.ok) {
       throw new Error('Failed to fetch latest posts');
@@ -109,7 +89,7 @@ export async function getLatestPosts(limit = 5) {
 export async function getHomeCategories() {
   try {
     const response = await fetch(`${API_URL}/categories/home`);
-
+    
     if (!response.ok) {
       throw new Error('Failed to fetch home categories');
     }

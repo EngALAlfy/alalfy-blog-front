@@ -41,7 +41,7 @@ const CategorySection = ({categories}) => {
   const remainingCategories = categories.slice(3).filter(category => 
     category.posts && category.posts.length > 0
   );
-
+  
   return (
     <section id="category-section" className="category-section section">
       <SectionTitle 

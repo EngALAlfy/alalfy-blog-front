@@ -16,14 +16,15 @@ export default async function Home() {
     getHomeCategories(),
     getLatestPosts()
   ]);
+  
 
   return (
       <main className="main">
-        <BlogHero posts={heroPost} />
-        <FeaturedPosts posts={featuredPosts} />
-        <CategorySection categories={categories} />
+        <BlogHero posts={heroPost['data']} />
+        <FeaturedPosts posts={featuredPosts['data']} />
+        <CategorySection categories={categories['data']} />
         <CallToAction />
-        <LatestPosts posts={latestPosts} />
+        <LatestPosts posts={latestPosts['data']} />
         {/*<NewsletterSection />*/}
       </main>
   );
