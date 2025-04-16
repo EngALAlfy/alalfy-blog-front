@@ -1,59 +1,61 @@
 import React from 'react';
 import BlogItem from '../shared/BlogItem';
+import Link from 'next/link';
 
 const BlogHero = ({ posts }) => {
-  // This would normally use the posts prop, but for now we'll use static content
+  // Check if posts data exists and has items
+  if (!posts || !Array.isArray(posts) || posts.length === 0) {
+    return (
+      <section id="blog-hero" className="blog-hero section">
+        <div className="container">
+          <div className="text-center">
+            <p>Loading hero posts...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Format date function
+  const formatDate = (dateString) => {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { 
+      month: 'short', 
+      day: 'numeric', 
+      year: 'numeric' 
+    });
+  };
+
   return (
     <section id="blog-hero" className="blog-hero section">
       <div className="container" data-aos="fade-up" data-aos-delay="100">
         <div className="blog-grid">
-          {/* Featured Post (Large) */}
-          <BlogItem 
-            featured
-            image="/img/blog/blog-post-3.webp"
-            date="Apr. 14th, 2025"
-            category="Technology"
-            title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-            link="blog-details.html"
-            delay={0}
-          />
+          {/* Featured Post (Large) - First post */}
+          {posts[0] && (
+            <BlogItem 
+              featured
+              image={posts[0].banner || '/img/blog/placeholder.webp'}
+              date={formatDate(posts[0].created_at)}
+              category={posts[0].category?.name || 'Uncategorized'}
+              title={posts[0].title}
+              link={`/blog/${posts[0].id}`}
+              delay={0}
+            />
+          )}
 
-          {/* Regular Posts */}
-          <BlogItem 
-            image="/img/blog/blog-post-portrait-1.webp"
-            date="Apr. 14th, 2025"
-            category="Security"
-            title="Sed do eiusmod tempor incididunt ut labore"
-            link="blog-details.html"
-            delay={100}
-          />
-
-          <BlogItem 
-            image="/img/blog/blog-post-9.webp"
-            date="Apr. 14th, 2025"
-            category="Career"
-            title="Ut enim ad minim veniam, quis nostrud exercitation"
-            link="blog-details.html"
-            delay={200}
-          />
-
-          <BlogItem 
-            image="/img/blog/blog-post-7.webp"
-            date="Apr. 14th, 2025"
-            category="Cloud"
-            title="Adipiscing elit, sed do eiusmod tempor incididunt"
-            link="blog-details.html"
-            delay={300}
-          />
-
-          <BlogItem 
-            image="/img/blog/blog-post-6.webp"
-            date="Apr. 14th, 2025"
-            category="Programming"
-            title="Excepteur sint occaecat cupidatat non proident"
-            link="blog-details.html"
-            delay={400}
-          />
+          {/* Regular Posts - Remaining posts */}
+          {posts.slice(1, 5).map((post, index) => (
+            <BlogItem 
+              key={post.id}
+              image={post.banner || '/img/blog/placeholder.webp'}
+              date={formatDate(post.created_at)}
+              category={post.category?.name || 'Uncategorized'}
+              title={post.title}
+              link={`/blog/${post.id}`}
+              delay={(index + 1) * 100}
+            />
+          ))}
         </div>
       </div>
     </section>
