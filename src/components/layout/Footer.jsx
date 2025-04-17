@@ -11,7 +11,7 @@ export default function Footer() {
 
         <div className="container footer-top">
           <div className="row gy-4">
-            <div className="col-lg-5 col-md-6 footer-about">
+            <div className="col-lg-4 col-md-6 footer-about">
               <Link href="/" className="logo d-flex align-items-center">
                 <span className="sitename">Alalfy Tech</span>
               </Link>
@@ -29,7 +29,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="col-lg-3 col-md-2 footer-links">
+            <div className="col-lg-2 col-md-2 footer-links">
               <h4>Useful Links</h4>
               <ul>
                 <li><Link href="/">Home</Link></li>
@@ -52,7 +52,18 @@ export default function Footer() {
             </div>
 
             <div className="col-lg-2 col-md-2 footer-links">
-              <h4>Useful links</h4>
+              <h4>Categories</h4>
+              <ul>
+                <li><Link href="https://alalfy.com/">Alalfy Portfolio</Link></li>
+                <li><Link href="https://profile.alalfy.com/ts/t2/">Our website 1</Link></li>
+                <li><Link href="https://profile.alalfy.com/ts/t1/">Our website 2</Link></li>
+                <li><Link href="https://alalfy.com/storage/uploads/cv.pdf">Alalfy CV</Link></li>
+                <li><Link href="https://store.yotech.org/">YoStore online store</Link></li>
+              </ul>
+            </div>
+
+            <div className="col-lg-2 col-md-2 footer-links">
+              <h4>Our websites</h4>
               <ul>
                 <li><Link href="https://alalfy.com/">Alalfy Portfolio</Link></li>
                 <li><Link href="https://profile.alalfy.com/ts/t2/">Our website 1</Link></li>
