@@ -39,7 +39,7 @@ const BlogHero = ({ posts }) => {
               date={formatDate(posts[0].created_at)}
               category={posts[0].category?.name || 'Uncategorized'}
               title={posts[0].title}
-              link={`/blog/${posts[0].id}`}
+              link={`/${posts[0].slug}`}
               delay={0}
             />
           )}
@@ -52,7 +52,7 @@ const BlogHero = ({ posts }) => {
               date={formatDate(post.created_at)}
               category={post.category?.name || 'Uncategorized'}
               title={post.title}
-              link={`/blog/${post.id}`}
+              link={`/${post.slug}`}
               delay={(index + 1) * 100}
             />
           ))}
