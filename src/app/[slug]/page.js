@@ -9,7 +9,8 @@ export const revalidate = 3600;
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const post = await getPostBySlug(slug);
+  let post = await getPostBySlug(slug);
+  post = post?.data;
 
   if (!post) {
     return {
@@ -69,7 +70,6 @@ export default async function BlogPost({ params }) {
   
   return (
     <>
-      <Header />
       <div className="container">
         <div className="row">
           <div className="col-lg-8">
@@ -103,13 +103,13 @@ export default async function BlogPost({ params }) {
                       <div className="author-info">
                         <div className="author-details">
                           <img 
-                            src={post.author?.avatar || "/img/person/default-avatar.webp"} 
+                            src={post.author?.avatar}
                             alt={post.author?.name || "Author"} 
                             className="author-img" 
                           />
                           <div className="info">
                             <h4>{post.author?.name || "Anonymous"}</h4>
-                            <span className="role">{post.author?.role || "Author"}</span>
+                            <span className="role">{post.author?.job || "Author"}</span>
                           </div>
                         </div>
                         <div className="post-meta">
@@ -134,7 +134,7 @@ export default async function BlogPost({ params }) {
                         <h4>Related Topics</h4>
                         <div className="tags">
                           {post.tags?.map(tag => (
-                            <Link href={`/tag/${tag.id}`} key={tag.id} className="tag">
+                            <Link href='#' key={tag.id} className="tag">
                               {tag.name}
                             </Link>
                           )) || (
@@ -146,15 +146,15 @@ export default async function BlogPost({ params }) {
                         </div>
                       </div>
 
-                      <div className="share-section">
-                        <h4>Share Article</h4>
-                        <div className="social-links">
-                          <a href="#" className="twitter"><i className="bi bi-twitter-x"></i></a>
-                          <a href="#" className="facebook"><i className="bi bi-facebook"></i></a>
-                          <a href="#" className="linkedin"><i className="bi bi-linkedin"></i></a>
-                          <a href="#" className="copy-link" title="Copy Link"><i className="bi bi-link-45deg"></i></a>
-                        </div>
-                      </div>
+                      {/*<div className="share-section">*/}
+                      {/*  <h4>Share Article</h4>*/}
+                      {/*  <div className="social-links">*/}
+                      {/*    <a href="#" className="twitter"><i className="bi bi-twitter-x"></i></a>*/}
+                      {/*    <a href="#" className="facebook"><i className="bi bi-facebook"></i></a>*/}
+                      {/*    <a href="#" className="linkedin"><i className="bi bi-linkedin"></i></a>*/}
+                      {/*    <a href="#" className="copy-link" title="Copy Link"><i className="bi bi-link-45deg"></i></a>*/}
+                      {/*  </div>*/}
+                      {/*</div>*/}
                     </div>
                   </div>
                 </article>
@@ -289,7 +289,6 @@ export default async function BlogPost({ params }) {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }
