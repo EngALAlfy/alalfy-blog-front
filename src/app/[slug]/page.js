@@ -66,8 +66,6 @@ export default async function BlogPost({ params }) {
 
   const readingTime = calculateReadingTime(post.description);
 
-  console.log(post);
-  
   return (
     <>
       <div className="container">
@@ -85,7 +83,7 @@ export default async function BlogPost({ params }) {
                     />
                     <div className="meta-overlay">
                       <div className="meta-categories">
-                        <Link href={`/category/${post.category?.id}`} className="category">
+                        <Link href={`/category/${post.category?.slug}`} className="category">
                           {post.category?.name || "Uncategorized"}
                         </Link>
                         <span className="divider">•</span>
@@ -229,16 +227,11 @@ export default async function BlogPost({ params }) {
                 <ul className="mt-3">
                   {categories?.data?.map(category => (
                     <li key={category.id}>
-                      <Link href={`/category/${category.id}`}>
+                      <Link href={`/category/${category.slug}`}>
                         {category.name} <span>({category.posts_count || 0})</span>
                       </Link>
                     </li>
-                  )) || (
-                    <>
-                      <li><Link href="#">General <span>(25)</span></Link></li>
-                      <li><Link href="#">Lifestyle <span>(12)</span></Link></li>
-                    </>
-                  )}
+                  ))}
                 </ul>
               </div>
 
@@ -254,29 +247,19 @@ export default async function BlogPost({ params }) {
                     />
                     <div>
                       <h4>
-                        <Link href={`/${recentPost.id}`}>{recentPost.title}</Link>
+                        <Link href={`/${recentPost.slug}`}>{recentPost.title}</Link>
                       </h4>
                       <time dateTime={recentPost.created_at}>{formatDate(recentPost.created_at)}</time>
                     </div>
                   </div>
-                )) || (
-                  <>
-                    <div className="post-item">
-                      <img src="/img/blog/placeholder.webp" alt="" className="flex-shrink-0" />
-                      <div>
-                        <h4><Link href="#">Loading recent posts...</Link></h4>
-                        <time dateTime="2020-01-01">Jan 1, 2020</time>
-                      </div>
-                    </div>
-                  </>
-                )}
+                ))}
               </div>
 
               <div className="tags-widget widget-item">
                 <h3 className="widget-title">Tags</h3>
                 <ul>
                   {post.tags?.map(tag => (
-                    <li key={tag.id}><Link href={`/tag/${tag.id}`}>{tag.name}</Link></li>
+                    <li key={tag.id}><Link href={`/tag/${tag.slug}`}>{tag.name}</Link></li>
                   )) || (
                     <>
                       <li><Link href="#">Technology</Link></li>
