@@ -2,7 +2,7 @@
  * API service for fetching blog data from Laravel backend
  */
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://blog.alalfy.com/api';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://blog-backend.alalfy.com/api';
 
 /**
  * Fetch a single blog post by slug
