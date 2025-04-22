@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  alalfy-blog:
+    image: alalfy-blog-front:latest
+    restart: always
+    # Changed to only expose to internal network
+    expose:
+      - "3000"
+    environment:
+      - NODE_ENV=production
+      # Add any other environment variables your app needs here
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - app-network
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      # Uncomment the line below if you want to use HTTPS
+      # - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      # Uncomment the lines below if you want to use HTTPS
+      # - ./nginx/ssl:/etc/nginx/ssl
+    depends_on:
+      - alalfy-blog
+    restart: always
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
