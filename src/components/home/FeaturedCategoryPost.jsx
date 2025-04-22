@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from "next/link";
 
 const FeaturedCategoryPost = ({ 
   image, 
@@ -6,24 +7,25 @@ const FeaturedCategoryPost = ({
   authorImg, 
   authorName, 
   date, 
-  title 
+  title,
+  link
 }) => {
   return (
     <article className="featured-post">
       <div className="post-img">
-        <img src={image} alt="" className="img-fluid" loading="lazy"/>
+        <img src={image} alt={title} className="img-fluid" loading="lazy"/>
       </div>
       <div className="post-content">
         <div className="category-meta">
           <span className="post-category">{category}</span>
           <div className="author-meta">
-            <img src={authorImg} alt="" className="author-img"/>
+            <img src={authorImg} alt={authorName} className="author-img"/>
             <span className="author-name">{authorName}</span>
             <span className="post-date">{date}</span>
           </div>
         </div>
         <h2 className="title">
-          <a href="blog-details.html">{title}</a>
+          <Link href={link}>{title}</Link>
         </h2>
       </div>
     </article>

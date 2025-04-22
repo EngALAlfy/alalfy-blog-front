@@ -76,7 +76,7 @@ const FeaturedPosts = ({ posts }) => {
                 commentCount={post.comments_count || 0}
                 title={post.title}
                 content={post.short_description}
-                link={`/blog/${post.id}`}
+                link={`/${post.slug}`}
               />
             ))}
           </div>

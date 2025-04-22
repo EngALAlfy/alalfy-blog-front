@@ -26,7 +26,6 @@ export async function getPostBySlug(slug) {
 
 /**
  * Fetch featured posts
- * @param {number} limit - Number of featured posts to fetch
  * @returns {Promise<Array>} - Array of featured blog posts
  */
 export async function getFeaturedPosts() {
@@ -83,20 +82,20 @@ export async function getLatestPosts() {
 }
 
 /**
- * Fetch home categories
- * @returns {Promise<Array>} - Array of home categories
+ * Fetch home categories posts
+ * @returns {Promise<Array>} - Array of categories posts
  */
-export async function getHomeCategories() {
+export async function getCategoriesPosts() {
   try {
-    const response = await fetch(`${API_URL}/categories/home`);
+    const response = await fetch(`${API_URL}/posts/categories`);
     
     if (!response.ok) {
-      throw new Error('Failed to fetch home categories');
+      throw new Error('Failed to fetch home categories posts');
     }
 
     return response.json();
   } catch (error) {
-    console.error('Error fetching home categories:', error);
+    console.error('Error fetching home categories posts:', error);
     return [];
   }
 }
