@@ -50,7 +50,7 @@ const LatestPosts = ({ posts }) => {
                 authorName={post.author?.name || 'Anonymous'}
                 date={formatDate(post.created_at)}
                 dateTime={post.created_at}
-                link={`/blog/${post.id}`}
+                link={`/${post.slug}`}
               />
             </div>
           ))}
