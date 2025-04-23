@@ -13,7 +13,7 @@ export default function Header() {
 
           <div className="top-row d-flex align-items-center justify-content-between">
             <Link href="/" className="logo d-flex align-items-end">
-              <h1 className="sitename">Alalfy Tech</h1><span>.</span>
+              <h1 className="sitename">Alalfy Dev</h1><span>.</span>
             </Link >
 
             <div className="d-flex align-items-center">

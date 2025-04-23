@@ -8,6 +8,11 @@ import {getHeroPost, getFeaturedPosts, getLatestPosts, getCategoriesPosts} from 
 
 export const revalidate = 3600; // Revalidate this page every hour
 
+export const metadata = {
+    title: 'Home | Blog',
+    description: 'Welcome to our blog! Discover the latest articles, insights, and stories from our community. Stay updated with our fresh content and explore various topics that inspire and inform.'
+}
+
 export default async function Home() {
   // Fetch all data in parallel
   const [heroPost, featuredPosts, categoriesPosts, latestPosts] = await Promise.all([

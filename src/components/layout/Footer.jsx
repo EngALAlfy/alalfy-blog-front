@@ -13,7 +13,7 @@ export default function Footer() {
           <div className="row gy-4">
             <div className="col-lg-4 col-md-6 footer-about">
               <Link href="/" className="logo d-flex align-items-center">
-                <span className="sitename">Alalfy Tech</span>
+                <span className="sitename">Alalfy Dev</span>
               </Link>
               <div className="footer-contact pt-3">
                 <p>Cairo</p>
@@ -54,11 +54,7 @@ export default function Footer() {
             <div className="col-lg-2 col-md-2 footer-links">
               <h4>Categories</h4>
               <ul>
-                <li><Link href="https://alalfy.com/">Alalfy Portfolio</Link></li>
-                <li><Link href="https://profile.alalfy.com/ts/t2/">Our website 1</Link></li>
-                <li><Link href="https://profile.alalfy.com/ts/t1/">Our website 2</Link></li>
-                <li><Link href="https://alalfy.com/storage/uploads/cv.pdf">Alalfy CV</Link></li>
-                <li><Link href="https://store.yotech.org/">YoStore online store</Link></li>
+                <li><Link href="#">Alalfy Portfolio</Link></li>
               </ul>
             </div>
 
