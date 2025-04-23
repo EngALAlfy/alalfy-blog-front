@@ -4,7 +4,6 @@ services:
   alalfy-blog:
     image: alalfy-blog-front:latest
     restart: always
-    # Changed to only expose it to internal network
     ports:
       - "3000:3000"
     environment:
@@ -18,22 +17,26 @@ services:
       retries: 3
     networks:
       - app-network
-
-  nginx:
+  webserver:
     image: nginx:alpine
     ports:
       - "80:80"
-      # Uncomment the line below if you want to use HTTPS
-      # - "443:443"
+      - "443:443"
     volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d
-      # Uncomment the lines below if you want to use HTTPS
-      # - ./nginx/ssl:/etc/nginx/ssl
+      - ./nginx/conf.d/:/etc/nginx/conf.d/:ro
+      - ./certbot/www/:/var/www/certbot/:ro
+      - ./certbot/conf/:/etc/nginx/ssl:ro
     depends_on:
       - alalfy-blog
     restart: always
     networks:
       - app-network
+
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
 
 networks:
   app-network:
