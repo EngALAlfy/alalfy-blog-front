@@ -1,9 +1,7 @@
 import { getPostBySlug, getLatestPosts, getAllCategories } from "@/lib/api";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
+import CodeHighlighter from "@/components/layout/CodeHighlighter";
 
 export const revalidate = 3600;
 
@@ -68,6 +66,7 @@ export default async function BlogPost({ params }) {
 
   return (
     <>
+      <CodeHighlighter />
       <div className="container">
         <div className="row">
           <div className="col-lg-8">

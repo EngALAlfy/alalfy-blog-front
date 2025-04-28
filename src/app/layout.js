@@ -17,6 +17,8 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
+import 'highlight.js/styles/github-dark.css';
+
 // Import the MainScript component
 import MainScript from '@/components/layout/MainScript';
 

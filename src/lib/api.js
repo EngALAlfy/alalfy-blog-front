@@ -11,6 +11,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://blog-backend.alalfy.
  */
 export async function getPostBySlug(slug) {
   try {
+
     const response = await fetch(`${API_URL}/posts/${slug}`);
 
     if (!response.ok) {
