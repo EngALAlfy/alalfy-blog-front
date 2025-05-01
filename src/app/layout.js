@@ -28,7 +28,7 @@ import Preloader from '@/components/layout/Preloader';
 
 export default function RootLayout({children}) {
     return (
-        <html lang="en">
+        <html lang="ar" dir="rtl">
             <head>
                 <link rel="icon" href="/img/favicon.ico" sizes="any" />
                 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
