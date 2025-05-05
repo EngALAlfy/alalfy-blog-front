@@ -1,10 +1,12 @@
 import Link from "next/link";
+import strings from "@/lib/strings";
 
 /**
  * Footer component for the blog
  */
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { footer } = strings.layout;
   
   return (
       <footer id="footer" className="footer">
@@ -13,59 +15,55 @@ export default function Footer() {
           <div className="row gy-4">
             <div className="col-lg-4 col-md-6 footer-about">
               <Link href="/" className="logo d-flex align-items-center">
-                <span className="sitename">Alalfy Dev</span>
+                <span className="sitename">{strings.site.name}</span>
               </Link>
               <div className="footer-contact pt-3">
-                <p>Cairo</p>
-                <p>Cairo, EG</p>
-                <p className="mt-3"><strong>Phone:</strong> <span>+20 11 53263 994</span></p>
-                <p><strong>Email:</strong> <span>islam@alalfy.com</span></p>
+                <p>{footer.contactInfo.location}</p>
+                <p>{footer.contactInfo.country}</p>
+                <p className="mt-3"><strong>{footer.contactInfo.phoneLabel}</strong> <span>{footer.contactInfo.phone}</span></p>
+                <p><strong>{footer.contactInfo.emailLabel}</strong> <span>{footer.contactInfo.email}</span></p>
               </div>
               <div className="social-links d-flex mt-4">
-                <a href="https://www.facebook.com/EngineerMix"><i className="bi bi-facebook"></i></a>
-                <a href="https://www.linkedin.com/in/islam-hassan-alalfy-2b2234167"><i className="bi bi-linkedin"></i></a>
-                <a href="https://www.instagram.com/yotech_org/"><i className="bi bi-instagram"></i></a>
-                <a href="https://github.com/EngALAlfy"><i className="bi bi-github"></i></a>
+                <a href={footer.socialLinks.facebook}><i className="bi bi-facebook"></i></a>
+                <a href={footer.socialLinks.linkedin}><i className="bi bi-linkedin"></i></a>
+                <a href={footer.socialLinks.instagram}><i className="bi bi-instagram"></i></a>
+                <a href={footer.socialLinks.github}><i className="bi bi-github"></i></a>
               </div>
             </div>
 
             <div className="col-lg-2 col-md-2 footer-links">
-              <h4>Useful Links</h4>
+              <h4>{footer.sections.usefulLinks.title}</h4>
               <ul>
-                <li><Link href="/">Home</Link></li>
-                <li><Link href="/about">About us</Link></li>
-                <li><Link href="https://yotech.org/ar/home#services">Services</Link></li>
-                {/*<li><Link href="#">Terms of service</Link></li>*/}
-                {/*<li><Link href="#">Privacy policy</Link></li>*/}
+                {footer.sections.usefulLinks.links.map((link, index) => (
+                  <li key={index}><Link href={link.path}>{link.label}</Link></li>
+                ))}
               </ul>
             </div>
 
             <div className="col-lg-2 col-md-2 footer-links">
-              <h4>Our Services</h4>
+              <h4>{footer.sections.ourServices.title}</h4>
               <ul>
-                <li><a href="https://yotech.org/ar/home#services">Web Design</a></li>
-                <li><a href="https://yotech.org/ar/home#services">Web Development</a></li>
-                <li><a href="https://yotech.org/ar/home#services">Server Management</a></li>
-                <li><a href="https://yotech.org/ar/home#services">Hosting</a></li>
-                <li><a href="https://yotech.org/ar/home#services">App Development</a></li>
+                {footer.sections.ourServices.links.map((link, index) => (
+                  <li key={index}><a href={link.path}>{link.label}</a></li>
+                ))}
               </ul>
             </div>
 
             <div className="col-lg-2 col-md-2 footer-links">
-              <h4>Categories</h4>
+              <h4>{footer.sections.categories.title}</h4>
               <ul>
-                <li><Link href="#">Alalfy Portfolio</Link></li>
+                {footer.sections.categories.links.map((link, index) => (
+                  <li key={index}><Link href={link.path}>{link.label}</Link></li>
+                ))}
               </ul>
             </div>
 
             <div className="col-lg-2 col-md-2 footer-links">
-              <h4>Our websites</h4>
+              <h4>{footer.sections.ourWebsites.title}</h4>
               <ul>
-                <li><Link href="https://alalfy.com/">Alalfy Portfolio</Link></li>
-                <li><Link href="https://profile.alalfy.com/ts/t2/">Our website 1</Link></li>
-                <li><Link href="https://profile.alalfy.com/ts/t1/">Our website 2</Link></li>
-                <li><Link href="https://alalfy.com/storage/uploads/cv.pdf">Alalfy CV</Link></li>
-                <li><Link href="https://store.yotech.org/">YoStore online store</Link></li>
+                {footer.sections.ourWebsites.links.map((link, index) => (
+                  <li key={index}><Link href={link.path}>{link.label}</Link></li>
+                ))}
               </ul>
             </div>
 
@@ -73,10 +71,10 @@ export default function Footer() {
         </div>
 
         <div className="container copyright text-center mt-4">
-          <p>© <span>Copyright</span> <strong className="px-1 sitename">ALALFY Tech</strong> <span>All Rights Reserved</span>
+          <p><span>{footer.copyright.text}</span> <strong className="px-1 sitename">{strings.site.name}</strong> <span>{footer.copyright.rightsReserved}</span>
           </p>
           <div className="credits">
-            By <a href="https://alalfy.com/">Alalfy.com</a>
+            {footer.copyright.by} <a href={footer.copyright.authorLink}>{footer.copyright.authorName}</a>
           </div>
         </div>
 

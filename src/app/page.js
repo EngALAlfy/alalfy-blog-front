@@ -5,12 +5,13 @@ import CallToAction from "@/components/home/CallToAction";
 import LatestPosts from "@/components/home/LatestPosts";
 import NewsletterSection from "@/components/home/NewsletterSection";
 import {getHeroPost, getFeaturedPosts, getLatestPosts, getCategoriesPosts} from "@/lib/api";
+import strings from '@/lib/strings';
 
 export const revalidate = 3600; // Revalidate this page every hour
 
 export const metadata = {
-    title: 'Home | Blog',
-    description: 'Welcome to our blog! Discover the latest articles, insights, and stories from our community. Stay updated with our fresh content and explore various topics that inspire and inform.'
+    title: strings.pages.home.title,
+    description: strings.pages.home.description
 }
 
 export default async function Home() {

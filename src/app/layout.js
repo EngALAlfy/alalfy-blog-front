@@ -25,10 +25,11 @@ import MainScript from '@/components/layout/MainScript';
 // Import scroll top component
 import ScrollTopButton from '@/components/layout/ScrollTopButton';
 import Preloader from '@/components/layout/Preloader';
+import strings from '@/lib/strings';
 
 export default function RootLayout({children}) {
     return (
-        <html lang="ar" dir="rtl">
+        <html lang={strings.site.language} dir={strings.site.direction}>
             <head>
                 <link rel="icon" href="/img/favicon.ico" sizes="any" />
                 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />

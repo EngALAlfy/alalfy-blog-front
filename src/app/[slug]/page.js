@@ -20,6 +20,7 @@ export async function generateMetadata({ params }) {
   return {
     title: post.title,
     description: post.short_description,
+    keywords: post.tags?.map(t => t.name),
     openGraph: {
       title: post.title,
       description: post.short_description,
