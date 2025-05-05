@@ -6,19 +6,19 @@ const InfoCardsSection = () => {
     {
       icon: 'geo-alt',
       title: 'Our Address',
-      content: '2847 Rainbow Road, Springfield, IL 62701, USA',
+      content: 'Cairo, EG',
       delay: 100
     },
     {
       icon: 'telephone',
       title: 'Contact Number',
-      content: 'Mobile: +1 (555) 123-4567<br/>Email: info@example.com',
+      content: 'Mobile: +20 11 53263 994<br/>Email: islam@alalfy.com',
       delay: 200
     },
     {
       icon: 'clock',
       title: 'Opening Hour',
-      content: 'Monday - Saturday: 9:00 - 18:00<br/>Sunday: Closed',
+      content: 'Sunday - Saturday: 18:00 - 23:00',
       delay: 300
     }
   ];

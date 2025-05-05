@@ -2,28 +2,22 @@ import React from 'react';
 
 const AboutIntro = () => {
   return (
-    <div className="row">
-      <div className="col-lg-6">
-        <h2 className="about-title">Nemo enim ipsam voluptatem quia voluptas aspernatur</h2>
-        <p className="about-description">
-          Temporibus autem quibusdam et aut officiis debitis aut
-          rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non
-          recusandae.
-        </p>
+      <div className="row">
+        <div className="col-lg-6">
+          <h2 className="about-title">But what really is Alalfy Dev?</h2>
+          <p className="about-description">
+            Alalfy Dev is more than just a blog — it's a digital space where technology, creativity, and real-world solutions meet. But why does it exist, and what does it aim to achieve?
+          </p>
+        </div>
+        <div className="col-lg-6">
+          <p className="about-text">
+            Alalfy Dev was founded with a clear mission: to simplify complex tech topics, inspire innovation, and share practical knowledge in a way that empowers developers, entrepreneurs, and tech enthusiasts alike.
+          </p>
+          <p className="about-text">
+            Whether it's breaking down the latest frameworks, sharing real development experiences, or offering insights into building scalable digital solutions — Alalfy Dev is here to help you stay ahead. We believe in learning by doing, sharing openly, and constantly pushing the boundaries of what's possible with technology.
+          </p>
+        </div>
       </div>
-      <div className="col-lg-6">
-        <p className="about-text">
-          Itaque earum rerum hic tenetur a sapiente delectus, ut aut
-          reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores
-          repellat.
-        </p>
-        <p className="about-text">
-          Amet eos ut. Officiis soluta ab id dolor non sint. Corporis omnis
-          consequatur quisquam ex consequuntur quo omnis. Quo eligendi cum. Amet mollitia qui
-          quidem dolores praesentium quasi ut et.
-        </p>
-      </div>
-    </div>
   );
 };
 

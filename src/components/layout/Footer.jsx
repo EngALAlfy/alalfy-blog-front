@@ -1,10 +1,12 @@
 import Link from "next/link";
+import strings from "@/lib/strings";
 
 /**
  * Footer component for the blog
  */
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { footer } = strings.layout;
   
   return (
       <footer id="footer" className="footer">
@@ -12,64 +14,56 @@ export default function Footer() {
         <div className="container footer-top">
           <div className="row gy-4">
             <div className="col-lg-4 col-md-6 footer-about">
-              <Link href="index.html" className="logo d-flex align-items-center">
-                <span className="sitename">Blogy</span>
+              <Link href="/" className="logo d-flex align-items-center">
+                <span className="sitename">{strings.site.name}</span>
               </Link>
               <div className="footer-contact pt-3">
-                <p>A108 Adam Street</p>
-                <p>New York, NY 535022</p>
-                <p className="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-                <p><strong>Email:</strong> <span>info@example.com</span></p>
+                <p>{footer.contactInfo.location}</p>
+                <p>{footer.contactInfo.country}</p>
+                <p className="mt-3"><strong>{footer.contactInfo.phoneLabel}</strong> <span>{footer.contactInfo.phone}</span></p>
+                <p><strong>{footer.contactInfo.emailLabel}</strong> <span>{footer.contactInfo.email}</span></p>
               </div>
               <div className="social-links d-flex mt-4">
-                <a href=""><i className="bi bi-twitter-x"></i></a>
-                <a href=""><i className="bi bi-facebook"></i></a>
-                <a href=""><i className="bi bi-instagram"></i></a>
-                <a href=""><i className="bi bi-linkedin"></i></a>
+                <a href={footer.socialLinks.facebook}><i className="bi bi-facebook"></i></a>
+                <a href={footer.socialLinks.linkedin}><i className="bi bi-linkedin"></i></a>
+                <a href={footer.socialLinks.instagram}><i className="bi bi-instagram"></i></a>
+                <a href={footer.socialLinks.github}><i className="bi bi-github"></i></a>
               </div>
             </div>
 
-            <div className="col-lg-2 col-md-3 footer-links">
-              <h4>Useful Links</h4>
+            <div className="col-lg-2 col-md-2 footer-links">
+              <h4>{footer.sections.usefulLinks.title}</h4>
               <ul>
-                <li><Link href="#">Home</Link></li>
-                <li><Link href="#">About us</Link></li>
-                <li><Link href="#">Services</Link></li>
-                <li><Link href="#">Terms of service</Link></li>
-                <li><Link href="#">Privacy policy</Link></li>
+                {footer.sections.usefulLinks.links.map((link, index) => (
+                  <li key={index}><Link href={link.path}>{link.label}</Link></li>
+                ))}
               </ul>
             </div>
 
-            <div className="col-lg-2 col-md-3 footer-links">
-              <h4>Our Services</h4>
+            <div className="col-lg-2 col-md-2 footer-links">
+              <h4>{footer.sections.ourServices.title}</h4>
               <ul>
-                <li><a href="#">Web Design</a></li>
-                <li><a href="#">Web Development</a></li>
-                <li><a href="#">Product Management</a></li>
-                <li><a href="#">Marketing</a></li>
-                <li><a href="#">Graphic Design</a></li>
+                {footer.sections.ourServices.links.map((link, index) => (
+                  <li key={index}><a href={link.path}>{link.label}</a></li>
+                ))}
               </ul>
             </div>
 
-            <div className="col-lg-2 col-md-3 footer-links">
-              <h4>Hic solutasetp</h4>
+            <div className="col-lg-2 col-md-2 footer-links">
+              <h4>{footer.sections.categories.title}</h4>
               <ul>
-                <li><Link href="#">Molestiae accusamus iure</Link></li>
-                <li><Link href="#">Excepturi dignissimos</Link></li>
-                <li><Link href="#">Suscipit distinctio</Link></li>
-                <li><Link href="#">Dilecta</Link></li>
-                <li><Link href="#">Sit quas consectetur</Link></li>
+                {footer.sections.categories.links.map((link, index) => (
+                  <li key={index}><Link href={link.path}>{link.label}</Link></li>
+                ))}
               </ul>
             </div>
 
-            <div className="col-lg-2 col-md-3 footer-links">
-              <h4>Nobis illum</h4>
+            <div className="col-lg-2 col-md-2 footer-links">
+              <h4>{footer.sections.ourWebsites.title}</h4>
               <ul>
-                <li><Link href="#">Ipsam</Link></li>
-                <li><Link href="#">Laudantium dolorum</Link></li>
-                <li><Link href="#">Dinera</Link></li>
-                <li><Link href="#">Trodelas</Link></li>
-                <li><Link href="#">Flexo</Link></li>
+                {footer.sections.ourWebsites.links.map((link, index) => (
+                  <li key={index}><Link href={link.path}>{link.label}</Link></li>
+                ))}
               </ul>
             </div>
 
@@ -77,10 +71,10 @@ export default function Footer() {
         </div>
 
         <div className="container copyright text-center mt-4">
-          <p>© <span>Copyright</span> <strong className="px-1 sitename">ALALFY Tech</strong> <span>All Rights Reserved</span>
+          <p><span>{footer.copyright.text}</span> <strong className="px-1 sitename">{strings.site.name}</strong> <span>{footer.copyright.rightsReserved}</span>
           </p>
           <div className="credits">
-            Designed by <a href="https://alalfy.com/">Alalfy.com</a>
+            {footer.copyright.by} <a href={footer.copyright.authorLink}>{footer.copyright.authorName}</a>
           </div>
         </div>
 

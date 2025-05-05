@@ -4,18 +4,33 @@ import CategorySection from "@/components/home/CategorySection";
 import CallToAction from "@/components/home/CallToAction";
 import LatestPosts from "@/components/home/LatestPosts";
 import NewsletterSection from "@/components/home/NewsletterSection";
+import {getHeroPost, getFeaturedPosts, getLatestPosts, getCategoriesPosts} from "@/lib/api";
+import strings from '@/lib/strings';
 
 export const revalidate = 3600; // Revalidate this page every hour
 
+export const metadata = {
+    title: strings.pages.home.title,
+    description: strings.pages.home.description
+}
+
 export default async function Home() {
+  // Fetch all data in parallel
+  const [heroPost, featuredPosts, categoriesPosts, latestPosts] = await Promise.all([
+    getHeroPost(),
+    getFeaturedPosts(),
+    getCategoriesPosts(),
+    getLatestPosts()
+  ]);
+
   return (
       <main className="main">
-        <BlogHero />
-        <FeaturedPosts />
-        <CategorySection />
+        <BlogHero posts={heroPost?.data} />
+        <FeaturedPosts posts={featuredPosts?.data} />
+        <CategorySection posts={categoriesPosts?.data} />
         <CallToAction />
-        <LatestPosts />
-        <NewsletterSection />
+        <LatestPosts posts={latestPosts['data']} />
+        {/*<NewsletterSection />*/}
       </main>
   );
 }

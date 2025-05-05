@@ -5,36 +5,36 @@ const FeaturesSection = () => {
   const features = [
     {
       icon: 'bullseye',
-      title: 'At vero eos',
-      description: 'Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat.',
+      title: 'Tech with Purpose',
+      description: 'We break down complex topics and tools into clear, practical insights to help developers and entrepreneurs build smarter.',
       delay: 200
     },
     {
       icon: 'person-check',
-      title: 'Sed ut perspiciatis',
-      description: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.',
+      title: 'Real Experience',
+      description: 'Content based on real-world projects, experiments, and lessons learned — not just theory or recycled tutorials.',
       delay: 300
     },
     {
       icon: 'clipboard-data',
-      title: 'Nemo enim ipsam',
-      description: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam.',
+      title: 'Actionable Content',
+      description: 'From code snippets to system architecture, each post is designed to give you something useful you can apply today.',
       delay: 400
     }
   ];
 
   return (
-    <div className="row features-boxes gy-4 mt-3">
-      {features.map((feature, index) => (
-        <FeatureBox
-          key={index}
-          icon={feature.icon}
-          title={feature.title}
-          description={feature.description}
-          delay={feature.delay}
-        />
-      ))}
-    </div>
+      <div className="row features-boxes gy-4 mt-3">
+        {features.map((feature, index) => (
+            <FeatureBox
+                key={index}
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+                delay={feature.delay}
+            />
+        ))}
+      </div>
   );
 };
 

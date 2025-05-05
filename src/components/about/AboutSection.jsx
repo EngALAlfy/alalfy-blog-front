@@ -13,7 +13,6 @@ const AboutSection = () => {
         
         <AboutIntro />
         <FeaturesSection />
-        <VideoBox thumbnailSrc="/img/about/about-wide-1.webp" />
       </div>
     </section>
   );
