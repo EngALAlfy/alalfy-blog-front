@@ -47,7 +47,7 @@ export default async function BlogPost({ params }) {
   const formatDate = (dateString) => {
     if (!dateString) return '';
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { 
+    return date.toLocaleDateString('ar-EG', {
       month: 'short', 
       day: 'numeric', 
       year: 'numeric' 
@@ -115,7 +115,7 @@ export default async function BlogPost({ params }) {
                           </span>
                           <span className="divider">•</span>
                           <span className="comments">
-                            <i className="bi bi-chat-text"></i> {post.comments_count || 0} Comments
+                            <i className="bi bi-chat-text"></i> {post.comments_count || 0} تعليق
                           </span>
                         </div>
                       </div>
@@ -206,7 +206,7 @@ export default async function BlogPost({ params }) {
                               </a>
                             )}
                             <Link href={`/author/${post.author.id}`} className="more-posts">
-                              Read More from {post.author.name.split(' ')[0]} <i className="bi bi-arrow-right"></i>
+                              Read More from {post.author.name.split(' ')[0]} <i className="bi bi-arrow-left"></i>
                             </Link>
                           </div>
                         </div>

@@ -22,7 +22,7 @@ const FeaturedPostItem = ({
           </div>
           <h2><Link href={link}>{title}</Link></h2>
           <p>{content}</p>
-          <Link href={link} className="read-more">Read More <i className="bi bi-arrow-right"></i></Link>
+          <Link href={link} className="read-more">Read More <i className="bi bi-arrow-left"></i></Link>
         </div>
       </div>
     </div>
